@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | The Royal Advisor</title>
+    <link rel="website icon" type="png" href="./img/logo.svg">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./responsive.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init('f1-_scse5BuaIsA1T'); // Replace 'YOUR_USER_ID' with your actual user ID from Email.js
+        })();
+    </script>
+    
+
+</head>
+
+<body class="contact-body">
+
+    <!-- navbe -->
+    <section class="nav-sec ">
+        <div class="nav">
+            <a href="./index.html">
+                <div class="logo"><img src="./img/logo.svg" alt=""></div>
+            </a>
+            <div class="menu-btn"><i class='bx bx-menu'></i></div>
+            <div class="more">
+
+                <ul>
+                    <a href="./index.html">
+                        <li>Home</li>
+                    </a>
+                    <a href="./about.html">
+                        <li>About Us</li>
+                    </a>
+                    <a href="./projects.html">
+                        <li>Our Projects</li>
+                    </a>
+                    <a href="./contact.html">
+                        <li>Contact Us</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </section>
+<!-- conatct us -->
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="from_name" required>
+
+            <label for="number">Phone Number:</label>
+            <input type="number" id="number" name="number" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">send message</button>
+        </form>
+        <p id="status-message"></p>
+    </div>
+    <br><br><br><br><br>
+
+    <!-- footer -->
+    <section class="footerline">
+        <div class="footer-container">
+            <div class="footer-logo"><img src="./img/logo.svg" alt=""></div>
+            <div class="detail">
+                <div class="location">
+                    <div class="icon"><i class='bx bxs-map icon'></i></div>
+                    <div class="address">
+                        <p>Plot No. 981, F.B Area Naseerabad,
+                            Block 14, Gulberg Town, Karachi.
+                        <p>
+                    </div>
+                </div>
+
+                <div class="mail">
+                    <div class="icon"><i class='bx bxl-gmail icon'></i></div>
+                    <div class="address">
+                        <p>theroyaladvisor.pk@gmail.com
+                        <p>
+                    </div>
+                </div>
+            </div>
+            <div class="social-logos">
+                <a href="https://www.facebook.com/TheRoyalAdvisorofficial" target="blank">
+                    <div class="fb"><i class='bx bxl-facebook'></i></div>
+                </a>
+                <a href="https://www.instagram.com/theroyaladvisor.official/" target="_blank">
+                    <div class="insta"><i class='bx bxl-instagram'></i></div>
+                </a>
+                <a href="https://wa.me/+923219888098" target="_blank">
+                    <div class="wp"><i class='bx bxl-whatsapp'></i></div>
+                </a>
+            </div>
+    </section>
+    <hr>
+    <section class="tag">
+        <h2>Designed & Created By Zaid Gatta</h2>
+    </section>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            emailjs.sendForm('service_ehgctmb', 'template_zij363b', this)
+                .then(function () {
+                    let sentMail= document.getElementById("status-message")
+                    console.log('SUCCESS!');
+                    sentMail.append('Email sent successfully!');
+                }, function (error) {
+                    console.log('FAILED...', error);
+                    sentMail.append('Failed to send email. Please try again.');
+                });
+        });
+
+        hamburger = document.querySelector(".menu-btn");
+        hamburger.onclick = function () {
+            navBar = document.querySelector(".more");
+            navBar.classList.toggle("active")
+        };</script>
+</body>
+
+</html>
